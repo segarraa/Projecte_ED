@@ -7,7 +7,6 @@ Created on Tue Nov  4 23:08:09 2025
 
 # ImageFiles.py
 import os
-import cfg
 
 class ImageFiles:
     def __init__(self):
@@ -17,12 +16,12 @@ class ImageFiles:
         Retorna:
             None
         """
-        self.arxius_actuals = []      
-        self.arxius_anteriors = []    
+        self.arxius_actuals = set()      
+        self.arxius_anteriors = set()    
     
     def reload_fs(self, ruta: str):
-            self.arxius_anteriors = list(self.arxius_actuals)
-            self.arxius_actuals = []
+            self.arxius_anteriors = self.arxius_actuals
+            self.arxius_actuals = set()
             
             if not os.path.exists(ruta):
                 return
@@ -42,7 +41,7 @@ class ImageFiles:
                                     if not ruta_relativa.startswith('images/'):
                                         ruta_relativa = f"images/{ruta_relativa}"
 
-                                self.arxius_actuals.append(ruta_relativa)                            
+                                self.arxius_actuals.add(ruta_relativa)                            
                             except Exception:
                                 continue
             
