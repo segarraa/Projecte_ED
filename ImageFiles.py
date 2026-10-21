@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Nov  4 23:08:09 2025
+Created on Tue Oct  20 16:08:09 2026
 
-@author: david
+@author: Usuario
 """
 
 # ImageFiles.py
@@ -32,15 +32,8 @@ class ImageFiles:
                         if nom_fitxer.lower().endswith('.png'):
                             try:
                                 ruta_completa = os.path.join(directori_actual, nom_fitxer)
-                                
-                                if not os.path.isfile(ruta_completa):
-                                    continue
                                 ruta_relativa = os.path.relpath(ruta_completa, ruta)
                                 ruta_relativa = ruta_relativa.replace(os.sep, '/')
-                                if os.path.basename(os.path.normpath(ruta)) == 'images':
-                                    if not ruta_relativa.startswith('images/'):
-                                        ruta_relativa = f"images/{ruta_relativa}"
-
                                 self.arxius_actuals.add(ruta_relativa)                            
                             except Exception:
                                 continue
