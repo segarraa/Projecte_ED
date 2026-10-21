@@ -23,24 +23,14 @@ class ImageFiles:
             self.arxius_anteriors = self.arxius_actuals
             self.arxius_actuals = set()
             
-            if not os.path.exists(ruta):
-                return
-            
-            try:
-                for directori_actual, subdirectoris, fitxers in os.walk(ruta):
-                    for nom_fitxer in fitxers:
-                        if nom_fitxer.lower().endswith('.png'):
-                            try:
-                                ruta_completa = os.path.join(directori_actual, nom_fitxer)
-                                ruta_relativa = os.path.relpath(ruta_completa, ruta)
-                                ruta_relativa = ruta_relativa.replace(os.sep, '/')
-                                self.arxius_actuals.add(ruta_relativa)                            
-                            except Exception:
-                                continue
-            
-            except Exception:
-                pass
-    
+            for directori_actual, subdirectoris, fitxers in os.walk(ruta):
+                for nom_fitxer in fitxers:
+                    if nom_fitxer.lower().endswith('.png'):
+                        ruta_completa = os.path.join(directori_actual, nom_fitxer)
+                        ruta_relativa = os.path.relpath(ruta_completa, ruta)
+                        ruta_relativa = ruta_relativa.replace(os.sep, '/')
+                        self.arxius_actuals.add(ruta_relativa)                            
+                           
     def files_added(self) -> list:
         """
         Retorna els fitxers nous des del darrer escaneig.
