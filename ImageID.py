@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Nov  4 23:11:35 2025
-
-@author: david
-"""
 
 # ImageID.py
 import cfg
