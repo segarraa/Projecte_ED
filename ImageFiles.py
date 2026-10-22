@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Oct  20 16:08:09 2026
-
-@author: Usuario
-"""
 
 # ImageFiles.py
 import os
